@@ -1,0 +1,123 @@
+{
+    "data" : {
+        "sections":{
+            "uuid": {
+                "grab_type_single": true,
+                "start":"uuid",
+                "end":"",
+                "target":[],
+                "function":"<value>",
+                "grouphead": false,
+                "group":["2"]
+            },
+            "first_name": {
+                "grab_type_single": true,
+                "start":"Q1r1",
+                "end":"",
+                "target":[],
+                "function":"<value>",
+                "grouphead": false,
+                "group":["2"]
+            },
+            "last_name": {
+                "grab_type_single": true,
+                "start":"Q1r2",
+                "end":"",
+                "target":[],
+                "function":"<value>",
+                "grouphead": false,
+                "group":["2"]
+            },
+            "email": {
+                "grab_type_single": true,
+                "start":"Q1r3",
+                "end":"",
+                "target":[],
+                "function":"<value>",
+                "grouphead": true,
+                "group":["2"]
+            },
+            "role_code": {
+                "grab_type_single": false,
+                "start":"Q3~",
+                "end":"Q3~",
+                "target":[],
+                "function":"join(; ,cross(split(between(<header>,Q3,~),<value>)))",
+                "grouphead": false,
+                "group":["2"]
+            },
+            "respondent_company": {
+                "grab_type_single": true,
+                "start":"dQ1r7",
+                "end":"",
+                "target":[],
+                "function":"<value>",
+                "grouphead": true,
+                "group":["1"]
+            },
+            "competencies": {
+                "grab_type_single": false,
+                "start":"dAllRatings~",
+                "end":"dAllRatings~",
+                "target":[
+                    "<header>$Q8~",
+                    "<header>$dSentiment~",
+                    "<header>$dDriver~",
+                    "<header>$~OALL",
+                    "<value>$99",
+                    "<value>$None",
+                    "<value>$Cannot Rate"
+                ],
+                "function":"split(between(<header>,_,r),between(<header>,r,~),<value>)",
+                "grouphead": true,
+                "group":["3"]
+            },
+            "competenciesOALL": {
+                "grab_type_single": false,
+                "start":"dAllRatings~OALL",
+                "end":"dAllRatings~OALL",
+                "target":[
+                    "<header>$Q8~",
+                    "<header>$dSentiment~",
+                    "<header>$dDriver~",
+                    "<header>~OALL",
+                    "<value>$99",
+                    "<value>$None",
+                    "<value>$Cannot Rate"
+                ],
+                "function":"split(between(<header>,_,-4),between(<header>,-4,~),<value>)",
+                "grouphead": false,
+                "group":["3"]
+            }
+        },
+        "merges":{
+            "competenciesOALL": "competencies"
+        },
+        "section_to_name":{
+            "uuid" : ["Response Code"], 
+            "first_name" : ["Mailing First Name"],
+            "last_name" : ["Mailing Last Name"],
+            "email" : ["Email"],
+            "role_code" : ["Role Codes"],
+            "respondent_company" : ["Respondent Company Code"],
+            "competencies" : ["Subject Company Code", "Competency Code", "Rating"]
+        },
+        "name_order":[
+        "Response Code",
+        "Respondent Company Code",
+        "Mailing First Name",
+        "Mailing Last Name",
+        "Email",
+        "Role Codes",
+        "Subject Company Code",
+        "Competency Code",
+        "Rating"
+        ],
+        "max_group_size" : "3"
+    },
+    "map" : {
+        "lookups" : {
+
+        }
+    }
+  }

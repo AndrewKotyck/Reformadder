@@ -1,0 +1,15 @@
+__pycache__/
+*.pyc
+.venv/
+venv/
+build/
+dist/
+*.exe
+
+# real data and old versions stay local
+_old_version/
+test_data/
+*.xlsx
+!sample_data/*.xlsx
+*reformatted*.xlsx
+!sample_data/*reformatted*.xlsx
